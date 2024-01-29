@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Starjedi';
+  src: url('fonts/Starjedi.ttf') format('truetype');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  font-family: 'Starjedi';
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.musicContainerStart {
+  width: 0px;
+  display: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.musicContainerShow {
+  animation: showMusicContainer 1s forwards;
 }
 
-.App-link {
-  color: #61dafb;
+.musicContainerHide {
+  animation: hideMusicContainer 1s forwards;
 }
 
-@keyframes App-logo-spin {
+@keyframes showMusicContainer {
   from {
-    transform: rotate(0deg);
+    clip-path: inset(0 0 0 100%);
   }
   to {
-    transform: rotate(360deg);
+    
+    clip-path: inset(0 0 0 0px);
+    display: block;
   }
+}
+
+@keyframes hideMusicContainer {
+  from {
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    display: none;
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+.musicButtonStart {
+  width: 90px !important;
+  position: absolute;
+  right: 0px !important;
+}
+
+.musicButtonShow {
+  animation: showMusicButton 1s forwards;
+}
+
+.musicButtonHide {
+  animation: hideMusicButton 1s forwards;
+}
+
+@keyframes showMusicButton {
+  from {
+    clip-path: inset(0 0 0 78%);
+  }
+  to {
+    clip-path: inset(0 0 0 0px);
+  }
+}
+
+@keyframes hideMusicButton {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 78%);
+    text-align: right;
+  }
+}
+
+.form-select {
+  padding: 3px 0px 3px 5px !important;
+  background-size: 10px !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
